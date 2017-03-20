@@ -4,6 +4,12 @@ Die meisten Linux-Distributionen enthalten standardmäßig bash (bourne again sh
 Alternativ kann aber auch eine andere Shell verwendet werden.
 Zsh beispielsweise ist eine recht beliebte Alternative, es gibt aber noch zahlreiche andere shells, wie ash, dash, fish, und tcsh.
 
+Aktuelle Shell ausgeben:
+```Bash
+echo $0
+# $0 referenziert das aktuelle Programm
+```
+
 ## Funktionen einer Shell
 
 Beim Start einer Kommandozeile bzw. eines Terminals unter Linux wird vom System das *Shell*-Programm gestartet. Shells ergänzen die Funktionen der Kommandozeile.
