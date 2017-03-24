@@ -37,9 +37,15 @@ SELECT * FROM DEMO_TABLE WHERE name='Meyer';
 | >=           |  Größergleich                                                                     |
 | <            | 	Kleiner                                                                          |
 | <=           |  Kleinergleich                                                                    |
-| BETWEEN(x,y) | 	Innerhalb eines vorgegebenen Bereichs                                            |
+| BETWEEN      | 	Innerhalb eines vorgegebenen Bereichs                                            |
 | LIKE         | 	Muster, beispielsweise wenn der Wert nur teilweise bekannt ist                   |
 | IN           | 	Mehrere Möglichkeiten (Entspricht OR-Verknüpfung von mehreren Gleicheitsangaben) |
+
+Die Verwendung von BETWEEN sieht dabei folgendermaßen aus:
+
+```SQL
+[...] WHERE price BETWEEN 5 AND 10;
+```
 
 ### AND, OR, NOT
 
