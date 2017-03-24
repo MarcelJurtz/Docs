@@ -89,6 +89,7 @@ Abfrage von NULL-Werten:
 ## Alias
 
 Mithilfe eines Alias können Spalten intern umbenannt werden, um Anfragen übersichtlicher zu gestalten. Aliase können auch Tabellen zugwiesen werden, was sich bei Joins anbietet.
+Bei Tabellen ist 'AS' optional.
 
 ```SQL
 SELECT col1 AS username, col2, col3 FROM DEMO_TABLE AS TAB WHERE username IN('A','B','C');
