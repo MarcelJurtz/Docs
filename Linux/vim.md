@@ -21,6 +21,13 @@ Schließen von vim (verwerfen von Änderungen): ```:q!```
 Speichern und Schließen: ```:wq```
 
 Bewegen in der geöffneten Datei: ```h```,```j```,```k```,```l```  
+Navigation zum Ende des nächsten Worts: ```e```  
+Navigation zum Beginn des nächsten Worts: ```w```  
+Navigation zum Beginn des letzten Worts ```b```  
+Navigation zum Ende der Zeile ```$```  
+Navigation zum Beginn einer Zeile ```0```  
+Navigation zum Ende einer Datei ```G```  
+Navigation zum Beginn einer Datei ```gg```  
 Bewegen zu spezieller Zeile (z.B. 285): ```:285```  
 Suche nach einem Wort: ```/wort```  
 
