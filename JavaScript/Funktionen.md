@@ -18,3 +18,5 @@ let showMessage = function() {
 
 showMessage();
 ```
+
+Bei Funktionsausdrücken wird die Funktion also nicht über den Funktionsnamen aufgerufen, sondern über die Variable, der die Funktion zugewiesen wurde.
