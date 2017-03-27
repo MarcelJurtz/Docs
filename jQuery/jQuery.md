@@ -170,3 +170,15 @@ $('h1').each(function) {
   heights.push($(this).height());
 }
 ```
+
+## Verschiedenes
+
+### Beziehen des Inhalts einer Textbox:
+
+```HTML
+<input type="text" id="txtInput" />
+```
+
+```JavaScript
+$('#txtInput').val()
+```
