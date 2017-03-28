@@ -1,7 +1,5 @@
 # Electron
 
-
-
 Electron ist ein von GitHub entwickeltes, quelloffenes Framework.
 Es ermöglicht die Ausführung von Desktop-Anwendungen mithilfe des Webbrowsers Chromium und des Node.js-Frameworks.
 
