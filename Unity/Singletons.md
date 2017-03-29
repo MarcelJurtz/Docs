@@ -1,6 +1,6 @@
 # Singletons
 
-Ein Singleton ist ein Entwurfsmuster, dass die Instaziierung einer Klasse auf
+Ein Singleton ist ein Entwurfsmuster, das die Instanziierung einer Klasse auf
 ein einzelnes Objekt beschränkt. Dies bietet sich an, um globale Variablen zu deklarieren,
 beispielsweise in Form eines GameManagers.
 
@@ -36,7 +36,7 @@ Diese muss nun folgendermaßen angepasst werden:
 public class GameManager : MonoBehaviour
 {
   public static GameManager instance = null;
-  
+
   // Variable, auf die später zugegriffen werden soll
   private int level = 1;
   void Awake()
