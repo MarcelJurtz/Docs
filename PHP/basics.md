@@ -98,9 +98,11 @@ Um in einem HTML-Formular ein PHP-Snippet zu verwenden, wird nach folgendem Must
 ## Ausgaben
 
 ```PHP
+<?php
 echo "Hello World";
 // Alternativ
 print("Hello World");
+?>
 ```
 ## Kommentare
 

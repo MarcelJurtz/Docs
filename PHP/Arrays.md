@@ -7,14 +7,18 @@ Die Anzahl an Elementen eines Arrays erhält man mit ```sizeof($array)```
 ## Erzeugen von Arrays
 
 ```PHP
+<?php
 $array = array("Orwell", "Huxley", "Hemingway");
 echo $array[1]; // Huxley
+?>
 ```
 
 ## Anhängen von Elementen
 
 ```PHP
+<?php
 $array[] = "Austen";
+?>
 ```
 
 ## Assoziative Arrays
@@ -22,6 +26,7 @@ $array[] = "Austen";
 Assoziative Arrays erlauben den Zugriff auf Array-Elemente anhand eines Schlüssels.
 
 ```PHP
+<?php
 $authors = array(
   "A1" => "Orwell",
   "A2" => "Huxley",
@@ -29,6 +34,7 @@ $authors = array(
 );
 
 echo $authors["A2"]; // Huxley
+?>
 ```
 
 ## Arrays sortieren
