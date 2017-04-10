@@ -1,6 +1,6 @@
 # PHP
 
-PHP wird für serverseitige Webanwendungen verwendet und interagiert mit HTML-Formularen.
+PHP steht für *PHP Hyper Processor* und wird für serverseitige Webanwendungen verwendet und interagiert mit HTML-Formularen.
 
 ## HTML-Formulare
 
@@ -78,3 +78,31 @@ Mit *Fieldsets* werden Eingabefelder gruppiert.
   <!-- Inputs -->
 </fieldset>
 ```
+
+## Grundlagen PHP
+
+PHP wird mit HTML kombiniert.  
+
+## Einbindung in HTML
+
+Um in einem HTML-Formular ein PHP-Snippet zu verwenden, wird nach folgendem Muster vorgegangen:
+
+```HTML
+<!-- HTML Code -->
+<?php
+  // PHP-Code
+?>
+<!-- HTML Code -->
+```
+
+## Ausgaben
+
+```PHP
+echo "Hello World";
+// Alternativ
+print("Hello World");
+```
+## Kommentare
+
+* Singleline: ```//```
+* Multiline: ```/* */```
