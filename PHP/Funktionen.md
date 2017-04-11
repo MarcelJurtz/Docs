@@ -9,7 +9,7 @@ PHP unterscheidet zwischen benutzerdefinierten (eigenen) Funktionen, sowie Stand
 * ```settype($var, typ);```
 * ```isset($var);```
 * ```md5($string);```
-* ```htmlentities($var);``` Formatierung von HTML Sonderzeichen (zur Verhinderung von SQL-Injection)
+* ```htmlentities($var);```
 * Div. Mathematische Funktionen
 
 ## Benutzerdefinierte Funktionen
