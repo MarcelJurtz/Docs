@@ -2,7 +2,7 @@
 
 ## Tabellen
 
-'''Latex
+```Latex
 \begin{longtable}{Spaltendefinitionen}
 	l: links
 	c: zentriert
@@ -12,43 +12,43 @@
 \cline{von-bis}
 \hline
 \multicolumn{Anzahl verbundener Spalten}{Spaltendefinition}{Text}
-'''
+```
 
 
 ## Verweise
-'''Latex
+```Latex
 \cite{Bibtex-Key}
 \nocite{Bibtex-Key}
 	Erzeugt einen Eintrag im Literaturverzeichnis ohne Verweis im Text
-'''
+```
 
 ## Glossar
-'''Latex
+```Latex
 \newglossaryentry{label}{name={},description={}}
 gls{label}
-'''
+```
 
 ## Code-Snippets
-'''Latex
+```Latex
 Quellcode:
 \lstset{language=Java}
 \lstinputlisting[caption={},label={},firstline=x,lastline=x,firstnumber=x]{src/file}
 \lstinline!code!
-'''
+```
 
 ## Anhang
-'''Latex
+```Latex
 \appsection{Title}{Label}
 \appref{Label}
-'''
+```
 
 
 ## Stichwortverzeichnis
-'''Latex
+```Latex
 \index{Stichwort}
 \index{Stichwort auf Ebene 1!Stichwort auf Ebene 2}
 \index{Stichwort 1|see{Stichwort 2}}
-'''
+```
 
 ## Literaturverzeichnis
 
