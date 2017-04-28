@@ -1,4 +1,4 @@
-# Markdown
+﻿# Markdown
 
 Markdown ist eine vereinfachte Textauszeichnungssprache,
 die sehr gut lesbar ist.
@@ -57,4 +57,25 @@ Geordnete Listen:
 
 ```Markdown
 ![Alt Text](URL)
+```
+
+## Syntax Highlighting
+
+Angabe der Sprache hinter den Anführungszeichen.
+
+```Markdown
+```PHP
+echo 'Hello World!';
+```
+```
+
+```PHP
+echo 'Hello World!';
+```
+
+## Blockquotes
+
+```Markdown
+> Lorem ipsum dolor sit amet.
+> Inhalt im gleichen Quote.
 ```
