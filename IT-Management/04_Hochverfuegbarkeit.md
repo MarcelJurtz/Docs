@@ -104,3 +104,226 @@ Die Zeiten sind von den Herstellern zudem optimistisch und unter optimalen Bedin
 ### RAID
 
 Redundant Array of Independent (früher: Inexpensive) Disks.
+Schneller Plattenaustausch im Fall eines Ausfalls ist erforderlich, weshalb passende Festplatten stets auf Lager sein sollten.
+
+#### RAID 0: Strip Array
+
+```
+      +-------+
+      |   B1  |
+      +-------+           +-------+     +-------+     +-------+
+      |   B2  |           |   B1  |     |   B2  |     |   B3  |
+      +-------+           +-------+     +-------+     +-------+        
+      |   B3  |           |   B4  |     |   B5  |     |   B6  |
+      +-------+           +-------+     +-------+     +-------+
+      |   B4  |                 Physikalische Festplatten
+      +-------+
+      |   B5  |
+      +-------+
+      |   B6  |
+      +-------+
+ Logische Festplatte
+```
+
+* Keine Redundanz
+* Beispielsweise bei Videobearbeitung im Einsatz, da gleichzeitiges Lesen und Schreiben möglich
+
+#### RAID 1: Mirror
+
+```
+      +-------+           +-------+     +-------+
+      |   B1  |           |   B1  |     |   B1  |
+      +-------+           +-------+     +-------+
+      |   B2  |           |   B2  |     |   B2  |
+      +-------+           +-------+     +-------+
+      |   B3  |           |   B3  |     |   B3  |
+      +-------+           +-------+     +-------+
+      |   B4  |           |   B4  |     |   B4  |
+      +-------+           +-------+     +-------+
+      |   B5  |           |   B5  |     |   B5  |
+      +-------+           +-------+     +-------+
+      |   B6  |           |   B6  |     |   B6  |
+      +-------+           +-------+     +-------+
+ Logische Festplatte     Physikalische Festplatten
+```
+
+* Vollständige Redundanz
+* Beispielsweise bei WebServern im Einsatz
+* Performancesteigerung beim Lesen
+* Doppeltes Speichervolumen benötigt
+
+#### RAID 2 / 3 / 4: Strip Array mit ECC
+
+ECC: Error Correcting Code
+
+```
+      +-------+
+      |   B1  |                                                            ECC
+      +-------+           +-------+     +-------+     +-------+         +-------+
+      |   B2  |           |   B1  |     |   B2  |     |   B3  |         | 1,2,3 |
+      +-------+           +-------+     +-------+     +-------+         +-------+
+      |   B3  |           |   B4  |     |   B5  |     |   B6  |         | 4,5,6 |
+      +-------+           +-------+     +-------+     +-------+         +-------+
+      |   B4  |                 Physikalische Festplatten
+      +-------+
+      |   B5  |
+      +-------+
+      |   B6  |
+      +-------+
+ Logische Festplatte
+```
+
+Beim Ausfall von Beispielsweise B2:
+
+ECC123 = B1 XOR B2 XOR B3  
+B2 = ECC123 XOR B1 XOR B3  
+B2 = B1 XOR B2 XOR B3 XOR B1 XOR B3  
+B2 = B1 XOR B1 XOR B2 XOR B3 XOR B3  
+B2 = B2
+
+Unterschiede zwischen RAID 2, 3 und 4:
+* RAID 2: Reihum speichern von Bits
+* RAID 3: Reihum speichern von Bytes
+* RAID 4: Reihum speichern von Blöcken
+
+Mit den RAID-Stufen 2,3 und 4 lassen sich beliebig viele Festplatten absichern. Bei einem gleichzeitigen Ausfall von zwei Platten entsteht Datenverlust.
+
+Es bestehen keine Geschwindigkeitsvorteile beim Schreiben, da die ECC-Platte bei jedem Schreibzugriff belastet wird.
+
+#### RAID 5
+
+```
+      +-------+
+      |   B1  |
+      +-------+           +-------+     +-------+     +-------+     +-------+
+      |   B2  |           |   B1  |     |   B2  |     |   B3  |     | 1,2,3 |
+      +-------+           +-------+     +-------+     +-------+     +-------+
+      |   B3  |           | 4,5,6 |     |   B4  |     |   B5  |     |   B6  |
+      +-------+           +-------+     +-------+     +-------+     +-------+
+      |   B4  |                 Physikalische Festplatten
+      +-------+
+      |   B5  |
+      +-------+
+      |   B6  |
+      +-------+
+ Logische Festplatte
+```
+
+Bei RAID 5 wird die Fehlerkorrektur reihum verteilt. Hierdurch besteht die Möglichkeit zu schnellerem Schreibzugriff.
+
+#### RAID 6
+
+* Toleriert zwei Festplattenausfälle
+* Ausfallinformationen doppelt gespeichert anhand des Reed-Solomon-Codes
+* Komplexe Berechnung, welche diese Systeme teuer macht
+
+#### RAID 7
+
+* Kein Standard, Marketing-Strategie der *Storage Computer Corporation*
+* Asynchrones Schreiben durch große Caches
+* Kein Einsatz für Datenbanken, da das WAL-Prinzip verletzt wird
+
+#### RAID 10
+
+```
+                          +-------+     +-------+
+                          |   B1  |     |   B1  |
+      +-------+           +-------+     +-------+
+      |   B1  |           |   B4  |     |   B4  |
+      +-------+           +-------+     +-------+
+      |   B2  |
+      +-------+           +-------+     +-------+
+      |   B3  |           |   B2  |     |   B2  |
+      +-------+           +-------+     +-------+
+      |   B4  |           |   B5  |     |   B5  |
+      +-------+           +-------+     +-------+
+      |   B5  |
+      +-------+           +-------+     +-------+
+      |   B6  |           |   B3  |     |   B3  |
+      +-------+           +-------+     +-------+
+Logische Festplatte       |   B6  |     |   B6  |
+                          +-------+     +-------+
+                         Physikalische Festplatten
+```
+
+#### RAID 0+1
+
+```
+      +-------+
+      |   B1  |
+      +-------+           +-------+     +-------+     +-------+
+      |   B2  |           |   B1  |     |   B2  |     |   B3  |
+      +-------+           +-------+     +-------+     +-------+
+      |   B3  |           |   B4  |     |   B5  |     |   B6  |
+      +-------+           +-------+     +-------+     +-------+
+      |   B4  |
+      +-------+           +-------+     +-------+     +-------+
+      |   B5  |           |   B1  |     |   B2  |     |   B3  |
+      +-------+           +-------+     +-------+     +-------+
+      |   B6  |           |   B4  |     |   B5  |     |   B6  |
+      +-------+           +-------+     +-------+     +-------+
+ Logische Festplatte            Physikalische Festplatten
+```
+
+Ein Plattenausfall bei RAID 0+1 bedeutet einen kompletten Seitenausfall.
+
+#### RAID 51
+
+```
+      +-------+
+      |   B1  |
+      +-------+           +-------+     +-------+     +-------+     +-------+
+      |   B2  |           |   B1  |     |   B2  |     |   B3  |     | 1,2,3 |
+      +-------+           +-------+     +-------+     +-------+     +-------+
+      |   B3  |           | 4,5,6 |     |   B4  |     |   B5  |     |   B6  |
+      +-------+           +-------+     +-------+     +-------+     +-------+
+      |   B4  |
+      +-------+           +-------+     +-------+     +-------+     +-------+
+      |   B5  |           |   B1  |     |   B2  |     |   B3  |     | 1,2,3 |
+      +-------+           +-------+     +-------+     +-------+     +-------+
+      |   B6  |           | 4,5,6 |     |   B4  |     |   B5  |     |   B6  |
+      +-------+           +-------+     +-------+     +-------+     +-------+
+ Logische Festplatte            Physikalische Festplatten
+```
+
+Hier sind 3 Festplattenausfälle immer abgedeckt.
+
+#### Vergleich
+
+| RAID                            | 0 | 1 | 2-4 | 5       | 6       | 10 (01) | 51      |
+|---------------------------------|---|---|-----|---------|---------|---------|---------|
+| Platten mit Fehlerkorrektur     | n | 2 | n+1 | n+1     | n+2     | 2n      | 2(n+1)  |
+| Maximaler Lesefaktor            | n | 2 | n   | n+1     | n+2     | 2n      | 2(n+1)  |
+| Maximaler Schreibfaktor         | n | 1 | 1   | (n+1)/2 | (n+2)/3 | n       | (n+1)/2 |
+| Ausfallsicherheit (Platzierung) | 5 | 3 | 4   | 4       | 2       | 2       | 1       |
+
+RAID 1 wurde hier höher platziert als RAID 2-4 bzw. RAID 5, da weniger Platten für die gleiche Ausfallsicherheit benötigt werden. Allgemein ist zu beachten, dass die Ausfallwahrscheinlichkeit einer Platte bei einer höheren Gesamtmenge ebenfalls höher ist.
+
+### Systemdesign auf Dateiebene
+
+Sogenannte *Journaling File Systems* (funktionsorientierte Dateiesysteme) protokollieren Änderungspositionen, bei einem Absturz wird die letzte Zugriffsstelle geprüft. Allgemein wird hierdurch die Performance gesenkt, jedoch wird durch diese Maßnahme verhindert, dass die ganze Platte geprüft werden muss, was wiederum die MTTR senkt.
+
+### Zentrale Datensicherung
+
+Problem von Datensicherungen:
+* Netzwerk-Kapazität
+* Server-CPU-Belastung
+
+#### SAN: Storage Area Network
+
+Aufbau eines eigenen Netzwerks für Backupzwecke, somit wird das produktiv-Netzwerk nicht belastet.
+
+#### Virtual Tape Libraries
+
+Anwenden virtueller Bandlaufwerke zum Speichern auf Platte. Daten werden *dedupliziert*, wodurch doppelt vorhandene Daten (z.B. Lokalkopien oder Konfigurationsdateien) nur einmal gespeichert werden.
+
+#### Replikation und Mirroring
+
+Problem: Viel Zeit für Backups bei großen Datenmengen.  
+Lösung: Mirroring / SANs
+
+Beim Mirroring sind Spiegelplatten räumlich entfernt vorhanden. Hierdurch wird der Katastrophenfall abgedeckt, jedoch besteht in der Praxis aus Geschwindigkeitsgründen ein
+maximaler Abstand von 10 km (Glasfaser) bei synchroner Übertragung. Oft wird jedoch absichtlich ein Zeitabstand von ~2 Stunden gewählt, um beispielsweise Datenverluste durch Viren oder Angriffe zu verhindern.
+
+Bei der synchronen Replikation gilt der Schreibvorgang als abgeschlossen, wenn die Ankunft vom entfernten Server bestätigt wurde. Bei der asynchronen Replikation wird vermerkt (Log), dass die Datei übertragen werden muss. Bei einem Ausfall des Rechenzentrums gehen also die Daten,
+die in der Zwischenzeit angefallen sind, verloren. Hier ist auch die räumliche Entfernung irrelevant.
