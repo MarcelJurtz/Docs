@@ -1,8 +1,8 @@
-# Arrays
+﻿# Arrays
 
 Wie bei vielen Programmiersprachen (aber entgegengesetzt zu SQL, Achtung bei Datenbankinteraktionen) beginnen Array-Indizes mit 0.
 
-Die Anzahl an Elementen eines Arrays erhält man mit ```sizeof($array)```
+Die Anzahl an Elementen eines Arrays erhält man mit ```sizeof($array)```, alternativ mit ```count($array)```.
 
 ## Erzeugen von Arrays
 
@@ -34,6 +34,14 @@ $authors = array(
 );
 
 echo $authors["A2"]; // Huxley
+?>
+```
+
+Arrays der gleichen Länge können folgendermaßen zu einem assoziativen Array verbunden werden:
+
+```PHP
+<?php
+array_combine($keys, $values);
 ?>
 ```
 
