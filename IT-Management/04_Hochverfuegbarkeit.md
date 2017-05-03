@@ -1,4 +1,4 @@
-# Hochverfügbarkeit
+﻿# Hochverfügbarkeit
 
 Ziel: Möglichkeit zur Weiterarbeit trotz Ausfällen.
 
@@ -327,3 +327,77 @@ maximaler Abstand von 10 km (Glasfaser) bei synchroner Übertragung. Oft wird je
 
 Bei der synchronen Replikation gilt der Schreibvorgang als abgeschlossen, wenn die Ankunft vom entfernten Server bestätigt wurde. Bei der asynchronen Replikation wird vermerkt (Log), dass die Datei übertragen werden muss. Bei einem Ausfall des Rechenzentrums gehen also die Daten,
 die in der Zwischenzeit angefallen sind, verloren. Hier ist auch die räumliche Entfernung irrelevant.
+
+
+### Cluster
+
+* Steigerung der Performance durch mehrere Applikationsserver
+* Bei einem Ausfall sinkt lediglich die Performance
+
+Anforderungen an Cluster:
+* Zentrale Administration (Single Point of Administration)
+* Einzelnes Systemabbild
+* Kein Single Point of Failure zur Garantie hoher Verfügbarkeit
+* Skalierbarkeit
+
+#### Loadbalancing
+
+Verteilung der Last auf gleichartige Applikationsserver:
+* Least-Connections: Knoten mit geringsten Verbindungen erhält nächste Verbindung
+* Least-Cpu-Usage: Knoten mit geringster CPU-Auslastung erhält nächste Verbindung
+* Round-Robin: Zyklische Verteilung der Verbindungen
+* Fixed: Fest zugewiesene Verteilung
+* Random: Zufällige Serverauswahl
+
+Problematisch hierbei ist, dass die Verteilung auf Momentaufnahmen basiert. Bei den ersten beiden Varianten können verschiedene Ausnahmen vorliegen,
+die die Auswahl ineffizient gestalten. SAP verwendet Fixed Balancing und weist beispielsweise jeder Abteilung einen eigenen Applikationsserver zu.
+Hierdurch wird das Caching (Puffer) performanter gestaltet, da immer auf die gleichen Daten zugegriffen werden muss (Stammdaten).
+
+#### Fail-Over-Cluster
+
+* Alle Knoten werden produktiv eingesetzt
+* Bei einem Ausfall übernimmt ein anderer Knoten, hierzu müssen Peripherie, Anwendungen und IP sowie MAC-Adressen automatisch abgeglichen werden
+* Problem: Aktuelle Benutzeraktion kann bei einem Ausfall nicht zu Ende geführt werden.
+
+#### Takeover Cluster
+
+* Server nehmen Aufträge der Clients entgegen
+* Alle Aktionen eines Servers werden von einem weiteren mitverfolgt
+* Benötigt hierfür ausgelegte Software
+* Anwendungsbereich: Datenbankserver mit sehr hoher Verfügbarkeit
+
+#### n+1-Konzepte
+
+* Ein Ersatzserver für mehrere Server
+* Beim Ausfall eines Servers springt der Ersatzserver für diesen ein
+* Problematisch beim Ausfall mehrerer Server, mögliche Erweiterung zu n+m Lösung
+
+#### Redundanz der Software-Prozesse
+
+Alternativ kann auch der Client anhand eines Multicasts bestimmen,
+welcher Server die Anfrage beantworten soll. In der Regel wird hierzu der Server mit der schnellsten Antwort verwendet.
+Die Ermittlung der Server erfolgt beispielsweise anhand eines Nameservers.
+
+## Brandschutz
+
+Vorbeugung:
+
+* Baulich
+* Technisch
+* Organisatorisch
+
+Bereits beim Bau des Rechenzentrums ist auf passende Materialien zu achten.
+Löschungsmöglichkeiten mit Gasen (CO2, Stickstoff, Argon), alternativ Verringerung des Sauerstoffsanteil
+(Brände werden ab ~15% verhindert (entspricht ~3000m.), für bessere Arbeit durch Menschen in der Praxis meist ~17% (entspricht ~1800m.).
+Im Brandfall wird der Sauerstoff durch Zugabe von Stickstoff auf 15% verringert.
+
+## Stromversorgung
+
+Durchgehende Stromversorgung wird durch redundante Zuleitung ins Rechenzentrum, redundante Netzteile oder USVs realisiert,
+wobei letztere lediglich eine Zwischenversorgung, beispielsweise zum sauberen Herunterfahren, gewährleisten.
+Neuere Möglichkeit: Schwungrad, Antrieb nach einem Ausfall durch Trägheit.
+
+## Kosten
+
+Bei der Planung von Hochverfügbarkeitssystemen ist zwischen Kosten der möglichen Schäden und Kosten für die Sicherheit abzuwägen
+und hierbei das optimale Kosten-/Nutzen-verhältnis zu treffen.
