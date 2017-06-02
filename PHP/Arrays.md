@@ -37,6 +37,13 @@ echo $authors["A2"]; // Huxley
 ?>
 ```
 
+Elemente zu einem assoziativen Array hinzufügen:
+
+```PHP
+$array = array();
+$array[] = array($key => $value);
+```
+
 Arrays der gleichen Länge können folgendermaßen zu einem assoziativen Array verbunden werden:
 
 ```PHP
