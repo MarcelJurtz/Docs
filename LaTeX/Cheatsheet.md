@@ -1,5 +1,15 @@
 # LaTeX Cheatsheet
 
+## Abbildungen
+
+```Latex
+\begin{figure}
+  \includegraphics[width=\linewidth *0.8]{images/ablauf-stellen-matrix.png}
+  \caption[Titel im Abbildungsverzeichnis]{Abbildungstitel (Inklusive Quellenangabe (2017, S. 42))}
+  \label{fig:querverweis}
+\end{figure}
+```
+
 ## Tabellen
 
 ```Latex
