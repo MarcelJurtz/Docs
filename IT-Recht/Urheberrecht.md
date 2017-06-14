@@ -149,3 +149,12 @@ Das Anbieten bzw. der Verkauf von Software zur Umgehung technischer Schutzmaßna
 Ebenfalls ist die Mitteilung von Tipps zur Umgehung von Schutzmaßnahmen unzulässig. In Form von Zeitschriftenberichten ist dies zulässig, aber nur in Form von neutraler Software-Rezension.
 
 Die Kopierschutz-Umgehunsverbote gelten nicht für Software-Produkte, diese Abgrenzung führt zu Problemen, da viele Computerspiele über Musik- und Filmdateien verfügen.
+
+## Ansprüche bei Urheberrechtsverletzungen
+
+Ansprüche gegen eine Verletzung aus dem Urhebergesetz:
+
+* Beseitigunsansprüche
+* Unterlassungsansprüche
+* Schadenersatz
+* unter Umständen auch Anspruch auf Auskunft und Rechnungslegung
