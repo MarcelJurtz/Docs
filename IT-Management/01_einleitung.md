@@ -15,10 +15,10 @@ Durch IT-Management wird die Integration der Elemente
 
 unterstützt.
 
-## Stufen des Stellwerts der IT
+## Stufen des Stellenwerts der IT
   
 * IT ist ein Kostenfaktor
-* IT ist ein Vermögenswer
+* IT ist ein Vermögenswert
 * IT ist ein Geschäftspartner
 * IT ermöglicht strategische Wettbewerbsvorteile
 
