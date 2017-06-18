@@ -6,6 +6,21 @@ ITIL stellt eine Prozesssammlung zur Orientierung dar und bildet den De-facto St
 
 ITIL funktioniert kundenorientiert, bei internen Projekten ist zu beachten, dass auch hier der Anwender der Kunde ist. Es gilt, die Anforderungen des Anwenders zu erfüllen. ITIL bietet sich hierfür als Grundlage an, da durch die Bewährung Fehler vermieden werden können. Außerdem stellt ITIL lediglich einen Orientierungsrahmen bereit, der Freiheiten offen lässt (*Good Practices*).
 
+ITIL ist ein generisches Framework und stellt somit lediglich klar, was zu tun ist. Die Art (Wie) ist für den individuellen Anwendungsfall zu klären.
+
+Stufe 1: Kernpublikationen
+* Service Strategy
+* Service Design
+* Service Transition
+* Service Operation
+* Continual Service Improvement
+
+Stufe 2: Complementary Guidance
+* Diverse Zusatzliteratur mit Anpassungen für verschiedene Branchen.
+
+Stufe 3: Web Supporting Services
+* Online Verfügbare Templates, etc.
+
 ## Überblick
 
 ### Services
@@ -18,13 +33,21 @@ Sammlung physikalischer / logischer Bestandteile zur Unterstützung ausgewählte
 
 Anbieter von Services sind intern oder extern. Services sind nicht physikalischer Natur, sie erfordern Kommunikation zwischen Anwender und Personal.
 
+Alle verfügbaren Services werden im Service Katalog gesammelt.
+
+Differenzierung zwischen Produkten und Services. Bei einem Service bestehen zusätzliche Erwartungshaltungen, beispielsweise in Form von Zeit oder Qualität. Diese gilt es zu treffen, um Unzufriedenheit zu verhindern.
+
+Services werden unterstützt durch sogenannte Service-Assets, das sind Fähigkeiten und Ressourcen, die bei der Erfüllung von Services benötigt werden. Mit den Fähigkeiten wird die effiziente und effektive Nutzung der Ressourcen gesichert.
+
+Ressourcen sind Dinge wie *finanzielles Kapital*, *Infrastruktur*, *Applikationen* und *Informationen*, sowie *Mitarbeiter*. Ressourcen sind da oder nicht. Fähigkeiten (*Management*, *Organisation*, *Prozesse*, *Wissen*, *Mitarbeiter*) dagegen entwickeln sich.
+
 ### Service Management
 
 Bereitstellung von Services zur Schaffung eines Mehrwerts für den Kunden.
 
 ### Prozesse
 
-* Messbare
+* Messbar
 * Definierte Ziele
 * Definierte Abnehmer
 * Reaktion auf definierte Ereignisse
@@ -32,6 +55,31 @@ Bereitstellung von Services zur Schaffung eines Mehrwerts für den Kunden.
 * Compliance (Einhaltung von Richtlinien)
 
 Prozesse bestehen aus gesteuerten Aktivitäten zur Erzeugung eines Ergebnisses mit Kundennutzen.
+
+Im Service-Lifecycle sind für jede Stufe verschiedene Prozesse vorhanden.
+
+Beispiele:
+
+* Service Strategy
+  * Business Relationship Management
+  * Service Portfolio Management
+  * Demand Management
+  * ...
+* Service Design
+  * Service Level Management
+  * Supplier Management
+  * Information Security Management
+  * ...
+* Service Transition
+  * Transition Planning & Support
+  * Change Management
+  * Release & Deployment-Management
+  * ...
+* Service-Operation
+  * Event-Management
+  * Incident-Management
+  * Problem-Management
+  * ...
 
 ### Ziele
 
@@ -52,11 +100,15 @@ Der Kunde steht im Vordergrund (Zwei Rollen: Vertragspartner und Anwender).
 
 ### ITIL Service-Lebenszyklus
 
+Ziel des Service-Lebenszyklus ist die Beschreibung eines Services über dessen gesamte Lebensdauer (Strategie, Anforderungsaufnahme, Design, Umsetzung, Betrieb). Zentrales Element ist die Service-Strategy.
+
+![Service-Lifecycle](images/Service-Lifecycle.png)
+
 Der Lebenszyklus verdeutlicht das Zusammenspiel der verschiedenen Komponenten.
 Beispielhafte Abbildung in *IT SERVICE MANAGEMENT MIT ITIL® V3 - Pocketguide* von *Christian Simons**
 
 * Service Design: Bereitstellung
-* Service Transition: Übergang in Produktivbetrieb
+* Service Transition: Umsetzung, Übergang in Produktivbetrieb
 * Service Operation: Produktivbetrieb
 * Service Strategies: Governance, Verwaltung
 
@@ -203,6 +255,7 @@ Elemente eines RFCs:
 * Prüfungsprozess zum Abgleich der realen Welt in ITL.
 * Verwaltung der einzelnen Komponenten in der Configuration Management Database (CMDB).
 * Elemente hiervon werden Configuration Items (CIs) genannt.
+* Den Kunden interessieren weniger die einzelnen CIs, als das Gesamtergebnis des Services, welche mit den vereinbarten SLAs übereinstimmen soll.
 
 ### Release and Deployment-Management
 
