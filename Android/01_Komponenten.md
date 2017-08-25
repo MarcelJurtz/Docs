@@ -45,3 +45,45 @@ Beispielsweise Änderung der Ausrichtung (Portrait - Landscape).
 Siehe https://developer.android.com/reference/android/app/Activity.html:
 
 ![Activity Lifecycle](https://developer.android.com/images/activity_lifecycle.png)
+
+
+## Services
+
+Ein Service ist eine Komponente, die im Hintergrund läuft und ohne User Interface und somit ohne direkte Benutzerinteraktion abläuft.
+
+Services werden für repetitive und potentiell lang laufende Operationen wie Downloads oder Timer, Datenbearbeitung, ... verwendet.
+
+Da ein Service keine grafische Oberfläche besitzt, ist er nicht vom Lifecycle einer Activity abhängig.
+
+Normalerweise läuft ein Service im gleichen Prozess wie der Main Thread der Anwendung, weshalb asynchrone Verarbeitung für Services verwendet werden muss.
+
+### Service Lifecycle
+
+Siehe https://developer.android.com/guide/components/services.html:
+
+![Service Lifecycle](https://developer.android.com/images/service_lifecycle.png)
+
+
+## Content Providers
+
+Ein Content Provider versorgt eine Anwendung mit Daten einer anderen Anwendung.
+Solche Anfragen werden mit der ContentResolver-Klasse behandelt.
+Ein Content Provider kann unterschiedliche Möglichkeiten zum Bezug der Daten verwenden
+diese Daten können anschließend in einer Datenbank, in Dateien oder über ein Netzwerk gespeichert werden.
+
+Content Provider ermöglichen zentralisierte Speicherung und sind wie eine Datenbank vorstellbar.
+Unterstütze Methoden:
+* insert()
+* update()
+* delete()
+* query()
+
+Android verwendet häufig die integrierte SQLite Datenbank zur Speicherung.
+
+## Erstellen eines Content Providers
+
+1. Erstellen einer Klasse, die von **ContentProviderbase** erbt
+2. Definiere eine URI für den Provider, die dem Zugriff auf den Inhalt dient
+3. Erstelle eine eigene SQLite Datenbank
+4. Implementiere Queries um verschiedene datenbankspezifische Operationen durchzuführen
+5. Registriere den Content Provider in der Activity mittels <provider>-Tag
