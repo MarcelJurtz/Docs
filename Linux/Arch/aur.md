@@ -1,5 +1,7 @@
 # Arch User Repository
 
+![Arch User Repository](https://aur.archlinux.org/)
+
 User können im AUR Packagebuilds hochladen. Diese erhalten sie von den Websites der Programmierer.
 Der Anwender, der einen Packagebuild hochgeladen hat, ist für diesen zuständig (Updates etc.).
 Mit diesem Packagebuild kann ein Programm erstellt (bzw. kompiliert) werden, welcher von Pacman dann verwaltet wird (Update, Deinstallation).
@@ -8,10 +10,11 @@ Mit diesem Packagebuild kann ein Programm erstellt (bzw. kompiliert) werden, wel
 
 Beispielinstallation: pacaur (AUR-Helper).
 
-aur.archlinux.org
+Auf jeder Paketseite im AUR findet sich eine Liste von Dependencies, die das Paket benötigt,
+sowie Kommentare anderer User, welche sich oft zur Fehlersuche eignen.
 
 1. Verzeichnis für das Paket erstellen.
-2. Snapshot -> URL kopieren -> wget
+2. Snapshot -> URL kopieren -> wget (Alternativ: GitHub-Repository klonen)
 3. tar -xzvf
 4. cd
 5. makepkg -sr
