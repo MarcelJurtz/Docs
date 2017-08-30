@@ -87,3 +87,39 @@ Android verwendet häufig die integrierte SQLite Datenbank zur Speicherung.
 3. Erstelle eine eigene SQLite Datenbank
 4. Implementiere Queries um verschiedene datenbankspezifische Operationen durchzuführen
 5. Registriere den Content Provider in der Activity mittels <provider>-Tag
+
+## Broadcast Receivers
+
+Broadcast Receivers antworten auf broadcast messages anderer Anwendungen oder vom System selbst (beispielsweise Intents oder Events). Broadcast Receiver werden verwendet, um andere Anwendungen über bestimmte Ereignisse zu informieren, beispielsweise das Abschließen eines Downloads.
+
+Das Erstellen eines BroadcastReceivers besteht aus zwei wichtigen Schritten:
+
+* Erstellen des BroadcastReceivers
+* Registrierung des BroadcastReceivers
+
+Bei der Erstellung eines BroadcastReceivers muss die Methode *onReceive()* der Basisklasse *BroadcastReceiver* überschrieben werden.
+
+```Java
+public class CustomReceiver extends BroadcastReceiver {
+ @Override
+ public void onReceive(Context context, Intent intent) {
+  Toast.makeText(context, "Intent has been detected!", Toast.LENGTH_SHORT).show();
+ }
+}
+```
+
+Eine Anwendung hört auf bestimmte Intents durch die Registrierung eines BroadcastReceivers unter AndroidManifest.xml.
+
+```XML
+<application
+ android:icon="..."
+ android:label="..."
+ android:theme="...">
+ <receiver android:name="CustomReceiver">
+  <intent-filter>
+   <action android:name="android.intent.action.BOOT_COMPLETED">
+   </action>
+  </intent-filter>
+ </receiver>
+</application>
+```
