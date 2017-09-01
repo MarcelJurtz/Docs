@@ -139,3 +139,14 @@ button.setOnClickListener(new View.OnClickListener() {
 	}
 });
 ```
+
+## Intents
+
+Intents sind asynchrone Nachrichten, die Android Komponenten erlauben, Funktionalitäten anderer Komponenten anzufordern. Diese Komponenten können sich sowohl in der gleichen, als auch in einer anderen Anwendung befinden.
+
+Intents sind Instanzen der Klasse *android.content.Intent*. Eine Activity kann beispielsweise mit der Methode *startActivity()* gestartet werden.
+
+```Java
+Intent intent = new Intent(getApplicationContext(), myOtherActivity.class);
+startActivity(intent);
+```
