@@ -123,3 +123,19 @@ Eine Anwendung hört auf bestimmte Intents durch die Registrierung eines Broadca
  </receiver>
 </application>
 ```
+
+## Event Handling
+
+Mit Events werden Benutzerinteraktionen abgefangen und bearbeitet, beispielsweise beim Drücken eines Buttons.
+
+Im Fall von Buttons wird dazu die onClick()-Methode verwendet. Hierzu wird EventHandler und ein Listener benötigt. Die Kopplung kann am folgenden Beispiel betrachtet werden:
+
+```Java
+Button button = (Button)findViewById(R.id.button);
+button.setOnClickListener(new View.OnClickListener() {
+	@Override
+	public void onClick(View v) {
+		// Do something
+	}
+});
+```
